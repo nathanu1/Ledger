@@ -1,0 +1,336 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* ------------------------------------------------------------------ */
+/* Design tokens. Light is the :root default; dark is the app default  */
+/* applied by next-themes through data-theme on <html>.                */
+/* ------------------------------------------------------------------ */
+:root {
+  color-scheme: light;
+  --bg: #f4f6f9;
+  --panel: #ffffff;
+  --panel-raised: #f8fafc;
+  --panel-sunken: #eef1f6;
+  --border: #e2e7ef;
+  --border-strong: #c9d2df;
+  --text: #121826;
+  --text-secondary: #4f5b70;
+  --text-muted: #65718a;
+  --text-inverse: #f6f7fa;
+  --accent: #0e7c8c;
+  --accent-strong: #0a6472;
+  --accent-soft: rgba(14, 124, 140, 0.1);
+  --accent-contrast: #ffffff;
+  --positive: #177a4f;
+  --positive-soft: rgba(23, 122, 79, 0.1);
+  --negative: #b8402b;
+  --negative-soft: rgba(184, 64, 43, 0.1);
+  --warning: #9a6b00;
+  --warning-soft: rgba(154, 107, 0, 0.1);
+  --focus: #0e7c8c;
+  --shadow: 0 1px 2px rgba(18, 24, 38, 0.06), 0 4px 16px rgba(18, 24, 38, 0.06);
+  --overlay: rgba(18, 24, 38, 0.4);
+
+  /* Charts (validated with the dataviz palette checks against #ffffff). */
+  --chart-surface: #ffffff;
+  --chart-grid: #e7ebf2;
+  --chart-axis: #c9d2df;
+  --chart-text: #65718a;
+  --series-1: #0e96ad;
+  --series-2: #d95926;
+  --series-3: #6250d6;
+  --series-4: #d55181;
+  --series-5: #c98500;
+  --series-6: #008300;
+  --series-muted: #b6c0cf;
+  --chart-up: #177a4f;
+  --chart-down: #b8402b;
+  --chart-benchmark: #8a94a8;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0b1020;
+  --panel: #121a30;
+  --panel-raised: #18223c;
+  --panel-sunken: #0d1427;
+  --border: #1f2a45;
+  --border-strong: #2d3a5c;
+  --text: #f2eee6;
+  --text-secondary: #9aa3b8;
+  --text-muted: #7a849e;
+  --text-inverse: #0b1020;
+  --accent: #5cb8cc;
+  --accent-strong: #7ccadb;
+  --accent-soft: rgba(92, 184, 204, 0.14);
+  --accent-contrast: #0b1020;
+  --positive: #3eaf7c;
+  --positive-soft: rgba(62, 175, 124, 0.14);
+  --negative: #e0735e;
+  --negative-soft: rgba(224, 115, 94, 0.14);
+  --warning: #d9a441;
+  --warning-soft: rgba(217, 164, 65, 0.14);
+  --focus: #7ccadb;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35);
+  --overlay: rgba(4, 7, 16, 0.6);
+
+  /* Charts (validated against the dark panel #131a30). */
+  --chart-surface: #121a30;
+  --chart-grid: #1f2a45;
+  --chart-axis: #2d3a5c;
+  --chart-text: #7a849e;
+  --series-1: #1e9fc4;
+  --series-2: #d95926;
+  --series-3: #9085e9;
+  --series-4: #d55181;
+  --series-5: #c98500;
+  --series-6: #199e70;
+  --series-muted: #3b4766;
+  --chart-up: #3eaf7c;
+  --chart-down: #e0735e;
+  --chart-benchmark: #7a849e;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-panel: var(--panel);
+  --color-panel-raised: var(--panel-raised);
+  --color-panel-sunken: var(--panel-sunken);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-text: var(--text);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-text-inverse: var(--text-inverse);
+  --color-fg: var(--text);
+  --color-fg-secondary: var(--text-secondary);
+  --color-fg-muted: var(--text-muted);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-contrast: var(--accent-contrast);
+  --color-positive: var(--positive);
+  --color-positive-soft: var(--positive-soft);
+  --color-negative: var(--negative);
+  --color-negative-soft: var(--negative-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-focus: var(--focus);
+  --color-overlay: var(--overlay);
+
+  --font-sans: var(--font-plex-sans), system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+
+  --shadow-panel: var(--shadow);
+}
+
+/* ------------------------------------------------------------------ */
+/* Base                                                                */
+/* ------------------------------------------------------------------ */
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    background: var(--bg);
+    color: var(--text);
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "kern" 1, "liga" 1;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.5;
+    min-height: 100dvh;
+    overscroll-behavior-y: none;
+  }
+
+  ::selection {
+    background: var(--accent-soft);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+  }
+
+  button,
+  [role="button"],
+  a,
+  input,
+  select,
+  textarea {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button {
+    touch-action: manipulation;
+  }
+
+  select {
+    color: var(--text);
+    background-color: var(--panel);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+    letter-spacing: -0.01em;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  table {
+    border-collapse: collapse;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Utilities                                                           */
+/* ------------------------------------------------------------------ */
+@utility num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+@utility num-sans {
+  font-variant-numeric: tabular-nums;
+}
+
+@utility panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+@utility hairline-b {
+  border-bottom: 1px solid var(--border);
+}
+
+@utility hairline-t {
+  border-top: 1px solid var(--border);
+}
+
+@utility scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
+}
+
+@utility text-balance {
+  text-wrap: balance;
+}
+
+/* Visually hidden but available to assistive technology. */
+@utility sr-only-focusable {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+  &:focus,
+  &:focus-visible {
+    position: fixed;
+    top: 8px;
+    left: 8px;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 8px 12px;
+    clip: auto;
+    white-space: normal;
+    background: var(--panel);
+    color: var(--text);
+    border: 1px solid var(--border-strong);
+    z-index: 100;
+  }
+}
+
+/* Recharts chrome: hairline grid, recessive axes, no dashed rules. */
+.recharts-cartesian-grid line {
+  stroke: var(--chart-grid);
+}
+.recharts-cartesian-axis-line,
+.recharts-cartesian-axis-tick-line {
+  stroke: var(--chart-axis);
+}
+.recharts-cartesian-axis-tick-value {
+  fill: var(--chart-text);
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 11px;
+}
+.recharts-tooltip-cursor {
+  stroke: var(--border-strong);
+}
+.recharts-reference-line line {
+  stroke: var(--chart-axis);
+}
+
+/* Command palette (cmdk) */
+[cmdk-root] {
+  width: 100%;
+}
+[cmdk-input] {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  outline: none;
+  color: var(--text);
+  font-size: 15px;
+  padding: 14px 16px;
+}
+[cmdk-list] {
+  max-height: min(60vh, 420px);
+  overflow: auto;
+  scroll-padding-block: 8px;
+}
+[cmdk-group-heading] {
+  font-size: 11px;
+  color: var(--text-muted);
+  padding: 8px 12px 4px;
+  font-weight: 500;
+}
+[cmdk-item] {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  color: var(--text);
+}
+[cmdk-item][data-selected="true"] {
+  background: var(--accent-soft);
+}
+[cmdk-empty] {
+  padding: 24px 16px;
+  color: var(--text-muted);
+  text-align: center;
+}
