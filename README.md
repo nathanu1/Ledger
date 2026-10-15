@@ -1,5 +1,6 @@
 # Ledger
 
+Fun build I made with claude, 
 Stock research and portfolio intelligence for an individual investor. Local-first, single user, US-listed stocks, ETFs and cash in USD portfolios.
 
 Ledger answers six questions: what do I own and what drove my returns, how concentrated am I, are the companies I follow improving, what assumptions are embedded in a valuation, what changed since I last looked, and does new evidence support or weaken my thesis. Every figure explains its own calculation and links to the position, filing or assumption behind it.
