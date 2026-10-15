@@ -37,7 +37,7 @@ export function OverviewTab({ security, metrics, fin, prices, benchmark, benchma
           </PanelBody>
         </Panel>
       ) : (
-        <div className="grid grid-cols-2 gap-3 md:grid-cols-3 xl:grid-cols-6">
+        <div className="tile-strip grid-cols-2 md:grid-cols-3 xl:grid-cols-6">
           <StatTile
             label="Market cap"
             value={<span className="num-sans">{metrics.marketCap === null ? <span className="text-fg-muted">n/a</span> : formatMoneyCompact(metrics.marketCap)}</span>}

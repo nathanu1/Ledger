@@ -53,7 +53,7 @@ export default async function RiskPage({ searchParams }: { searchParams: SearchP
         }
       />
       <div className="flex flex-col gap-5">
-        <div className="grid grid-cols-2 gap-3 lg:grid-cols-6">
+        <div className="tile-strip grid-cols-2 lg:grid-cols-6">
           <StatTile label="Annualised volatility" value={<span className="num-sans">{risk.portfolio.volatility.value === null ? <span className="text-base text-fg-muted">n/a</span> : formatPct(risk.portfolio.volatility.value)}</span>} sub={risk.portfolio.volatility.reason ?? `Benchmark ${risk.benchmark.volatility.value === null ? "n/a" : formatPct(risk.benchmark.volatility.value)}`} explain={{ ...common, title: "Portfolio volatility", value: risk.portfolio.volatility.value === null ? "n/a" : formatPct(risk.portfolio.volatility.value), definition: "Sample standard deviation of the portfolio's daily time-weighted returns, annualised by the square root of 252." }} />
           <StatTile label="Maximum drawdown" value={<span className="num-sans">{risk.portfolio.maxDrawdown === null ? <span className="text-base text-fg-muted">n/a</span> : formatPct(risk.portfolio.maxDrawdown)}</span>} sub={`Benchmark ${risk.benchmark.maxDrawdown === null ? "n/a" : formatPct(risk.benchmark.maxDrawdown)}`} explain={{ ...common, title: "Maximum drawdown", value: risk.portfolio.maxDrawdown === null ? "n/a" : formatPct(risk.portfolio.maxDrawdown), definition: "Deepest peak-to-trough decline of the time-weighted growth index inside the window, so deposits cannot hide losses." }} />
           <StatTile label={`Beta vs ${risk.benchmark.symbol}`} value={<span className="num-sans">{risk.portfolio.beta.value === null ? <span className="text-base text-fg-muted">n/a</span> : formatNumber(risk.portfolio.beta.value, 2)}</span>} sub={risk.portfolio.beta.reason ?? (risk.portfolio.beta.rSquared !== null ? `R² ${formatNumber(risk.portfolio.beta.rSquared, 2)} · ${risk.portfolio.beta.observations} aligned days` : undefined)} explain={{ ...common, title: "Portfolio beta", value: risk.portfolio.beta.value === null ? "n/a" : formatNumber(risk.portfolio.beta.value, 2), definition: `Covariance of portfolio and benchmark daily returns divided by the benchmark's variance, over dates both have data. Benchmark series is ${risk.benchmark.adjustment === "splits_dividends" ? "adjusted for splits and dividends" : risk.benchmark.adjustment === "splits" ? "split-adjusted" : "raw"}.` }} />
@@ -64,7 +64,7 @@ export default async function RiskPage({ searchParams }: { searchParams: SearchP
 
         <div className="grid gap-5 lg:grid-cols-2">
           <Panel>
-            <PanelHeader title="Correlation of daily returns" description={corr.reason ?? `Pearson correlation over ${corr.observations} common trading days. Cyan = moves together, orange = moves opposite.`} />
+            <PanelHeader title="Correlation of daily returns" description={corr.reason ?? `Pearson correlation over ${corr.observations} common trading days. Blue = moves together, orange = moves opposite.`} />
             <PanelBody>
               {corr.reason ? (
                 <EmptyState title="Not enough common history" description={corr.reason} />

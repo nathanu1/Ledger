@@ -13,7 +13,7 @@ export function PerformanceTiles({ snapshot }: { snapshot: PortfolioSnapshot }) 
   const fees = Number(ledger.totals.standaloneFees);
   const totalGain = unrealized + realized + dividends + interest - fees;
   return (
-    <div className="grid grid-cols-2 gap-3 lg:grid-cols-6">
+    <div className="tile-strip grid-cols-2 lg:grid-cols-6">
       <StatTile
         label="Total value"
         value={<span className="num-sans">{formatMoney(valuation.totalValue)}</span>}

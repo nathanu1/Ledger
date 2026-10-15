@@ -248,7 +248,7 @@ docs            METHODOLOGY.md (calculation conventions), FEATURES.md (scope and
 
 Pages render on the server straight from SQLite. The interactive pieces (charts, tables, the DCF lab, forms) are client components that call server actions. Every externally sourced value keeps its provider, reference, reporting period or market timestamp, units and retrieval time.
 
-On the design side: dark research-terminal theme by default (ink navy, warm off-white text, a restrained cyan accent, muted emerald and coral for gains and losses) with a fully supported light theme. Tabular figures everywhere so columns of numbers line up. Chart colours were checked for colour-vision separation, every chart has a table twin and a text summary, and colour never carries meaning on its own; there's always a sign, an icon or a label next to it.
+On the design side: warm graphite by default and a paper-toned light theme, both built from the same tokens. There is one accent, a quiet cobalt, and it only ever means "interactive": links, the active tab, focus, the primary button. Gains are sage, losses are terracotta, and neither is ever the only signal, since every value also carries a sign, an icon or a label. Summary numbers sit in a single divided strip rather than a row of cards, tabular figures keep columns aligned, and the chart palette was run through a colour-vision validator in both themes. Every chart has a table twin and a text summary.
 
 <br>
 

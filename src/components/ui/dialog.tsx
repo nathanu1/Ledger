@@ -34,7 +34,7 @@ export function DialogContent({ title, description, children, className, side = 
             </Button>
           </RadixDialog.Close>
         </div>
-        <div className="min-h-0 flex-1 overflow-y-auto px-5 py-4 scrollbar-thin">{children}</div>
+        <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-5 py-4 scrollbar-thin">{children}</div>
       </RadixDialog.Content>
     </RadixDialog.Portal>
   );

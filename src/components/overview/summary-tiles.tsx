@@ -13,7 +13,7 @@ export function SummaryTiles({ snapshot }: { snapshot: PortfolioSnapshot }) {
   const twr = period.twr?.totalReturn ?? null;
   const gain = period.gain;
   return (
-    <div className="grid grid-cols-2 gap-3 lg:grid-cols-5">
+    <div className="tile-strip grid-cols-2 lg:grid-cols-5">
       <StatTile
         label="Portfolio value"
         value={<span className="num-sans">{formatMoney(valuation.totalValue)}</span>}

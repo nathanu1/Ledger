@@ -6,7 +6,7 @@ export function PageHeader({ title, description, actions, eyebrow, className }: 
     <div className={cn("mb-5 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between", className)}>
       <div className="min-w-0">
         {eyebrow ? <div className="mb-1 text-xs text-fg-muted">{eyebrow}</div> : null}
-        <h1 className="text-xl font-semibold tracking-tight text-fg sm:text-[22px]">{title}</h1>
+        <h1 className="text-[22px] font-semibold tracking-tight text-fg sm:text-2xl">{title}</h1>
         {description ? <p className="mt-1 max-w-[70ch] text-sm text-fg-secondary">{description}</p> : null}
       </div>
       {actions ? <div className="flex flex-wrap items-center gap-2">{actions}</div> : null}

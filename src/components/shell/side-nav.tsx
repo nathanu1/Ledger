@@ -6,7 +6,7 @@ import { Buildings, ChartLineUp, Funnel, Gear, ListMagnifyingGlass, Notebook, Sh
 import { cn } from "@/lib/cn";
 import { NAV_ITEMS, type NavItem } from "./nav-items";
 
-const ICONS: Record<NavItem["icon"], React.ComponentType<{ size?: number; weight?: "regular" | "fill" | "bold" | "duotone"; "aria-hidden"?: boolean }>> = {
+const ICONS: Record<NavItem["icon"], React.ComponentType<{ size?: number; weight?: "regular" | "fill" | "bold" | "duotone"; "aria-hidden"?: boolean; className?: string }>> = {
   overview: SquaresFour,
   portfolio: ChartLineUp,
   company: Buildings,
@@ -20,10 +20,10 @@ const ICONS: Record<NavItem["icon"], React.ComponentType<{ size?: number; weight
 export function SideNav() {
   const pathname = usePathname();
   return (
-    <nav aria-label="Primary" className="hidden lg:flex lg:w-[200px] lg:shrink-0 lg:flex-col lg:border-r lg:border-border lg:bg-panel-sunken/40">
+    <nav aria-label="Primary" className="hidden lg:flex lg:w-[200px] lg:shrink-0 lg:flex-col lg:border-r lg:border-border lg:bg-panel-sunken/60">
       <div className="flex h-14 items-center gap-2 px-4">
         <Link href="/" className="flex items-center gap-2 rounded-md focus-visible:outline-2 focus-visible:outline-focus">
-          <span aria-hidden className="grid h-6 w-6 place-items-center rounded-sm bg-accent text-accent-contrast font-mono text-[12px] font-semibold">
+          <span aria-hidden className="grid h-6 w-6 place-items-center rounded-sm bg-fg text-bg font-mono text-[12px] font-semibold">
             L
           </span>
           <span className="text-[15px] font-semibold tracking-tight text-fg">Ledger</span>
@@ -40,10 +40,10 @@ export function SideNav() {
                 aria-current={active ? "page" : undefined}
                 className={cn(
                   "flex h-9 items-center gap-2.5 rounded-md px-2.5 text-[13px] transition-colors focus-visible:outline-2 focus-visible:outline-focus",
-                  active ? "bg-accent-soft text-fg font-medium" : "text-fg-secondary hover:bg-panel-raised hover:text-fg",
+                  active ? "bg-panel-raised text-fg font-medium" : "text-fg-secondary hover:bg-panel-raised/60 hover:text-fg",
                 )}
               >
-                <Icon size={17} weight={active ? "fill" : "regular"} aria-hidden />
+                <Icon size={17} weight={active ? "fill" : "regular"} aria-hidden className={active ? "text-accent" : undefined} />
                 {item.label}
               </Link>
             </li>

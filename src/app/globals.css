@@ -8,88 +8,91 @@
 /* ------------------------------------------------------------------ */
 :root {
   color-scheme: light;
-  --bg: #f4f6f9;
-  --panel: #ffffff;
-  --panel-raised: #f8fafc;
-  --panel-sunken: #eef1f6;
-  --border: #e2e7ef;
-  --border-strong: #c9d2df;
-  --text: #121826;
-  --text-secondary: #4f5b70;
-  --text-muted: #65718a;
-  --text-inverse: #f6f7fa;
-  --accent: #0e7c8c;
-  --accent-strong: #0a6472;
-  --accent-soft: rgba(14, 124, 140, 0.1);
+  /* Paper: warm neutral, no blue cast. */
+  --bg: #f3f2ee;
+  --panel: #fcfcfb;
+  --panel-raised: #f6f5f2;
+  --panel-sunken: #ebe9e4;
+  --border: #e3e0da;
+  --border-strong: #cdc9c1;
+  --text: #1d1b18;
+  --text-secondary: #56524c;
+  --text-muted: #6f6a62;
+  --text-inverse: #f7f6f3;
+  /* One accent, used for links, focus, the active tab and primary actions only. */
+  --accent: #3659c0;
+  --accent-strong: #2a49a6;
+  --accent-soft: rgba(54, 89, 192, 0.09);
   --accent-contrast: #ffffff;
-  --positive: #177a4f;
-  --positive-soft: rgba(23, 122, 79, 0.1);
-  --negative: #b8402b;
-  --negative-soft: rgba(184, 64, 43, 0.1);
-  --warning: #9a6b00;
-  --warning-soft: rgba(154, 107, 0, 0.1);
-  --focus: #0e7c8c;
-  --shadow: 0 1px 2px rgba(18, 24, 38, 0.06), 0 4px 16px rgba(18, 24, 38, 0.06);
-  --overlay: rgba(18, 24, 38, 0.4);
+  --positive: #2b7a4b;
+  --positive-soft: rgba(43, 122, 75, 0.1);
+  --negative: #b2452d;
+  --negative-soft: rgba(178, 69, 45, 0.1);
+  --warning: #8a6214;
+  --warning-soft: rgba(138, 98, 20, 0.1);
+  --focus: #3659c0;
+  --shadow: 0 1px 2px rgba(42, 38, 30, 0.06), 0 6px 20px rgba(42, 38, 30, 0.08);
+  --overlay: rgba(29, 27, 24, 0.42);
 
-  /* Charts (validated with the dataviz palette checks against #ffffff). */
-  --chart-surface: #ffffff;
-  --chart-grid: #e7ebf2;
-  --chart-axis: #c9d2df;
-  --chart-text: #65718a;
-  --series-1: #0e96ad;
-  --series-2: #d95926;
-  --series-3: #6250d6;
-  --series-4: #d55181;
-  --series-5: #c98500;
-  --series-6: #008300;
-  --series-muted: #b6c0cf;
-  --chart-up: #177a4f;
-  --chart-down: #b8402b;
-  --chart-benchmark: #8a94a8;
+  /* Charts (validated with the dataviz palette checks against #fcfcfb). */
+  --chart-surface: #fcfcfb;
+  --chart-grid: #ebe9e4;
+  --chart-axis: #cdc9c1;
+  --chart-text: #6f6a62;
+  --series-1: #3b63c9;
+  --series-2: #eb6834;
+  --series-3: #1baf7a;
+  --series-4: #eda100;
+  --series-5: #e87ba4;
+  --series-6: #6250d6;
+  --series-muted: #c4c0b8;
+  --chart-up: #2b7a4b;
+  --chart-down: #b2452d;
+  --chart-benchmark: #8c877e;
 }
 
 [data-theme="dark"] {
   color-scheme: dark;
-  --bg: #0b1020;
-  --panel: #121a30;
-  --panel-raised: #18223c;
-  --panel-sunken: #0d1427;
-  --border: #1f2a45;
-  --border-strong: #2d3a5c;
-  --text: #f2eee6;
-  --text-secondary: #9aa3b8;
-  --text-muted: #7a849e;
-  --text-inverse: #0b1020;
-  --accent: #5cb8cc;
-  --accent-strong: #7ccadb;
-  --accent-soft: rgba(92, 184, 204, 0.14);
-  --accent-contrast: #0b1020;
-  --positive: #3eaf7c;
-  --positive-soft: rgba(62, 175, 124, 0.14);
-  --negative: #e0735e;
-  --negative-soft: rgba(224, 115, 94, 0.14);
-  --warning: #d9a441;
-  --warning-soft: rgba(217, 164, 65, 0.14);
-  --focus: #7ccadb;
-  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35);
-  --overlay: rgba(4, 7, 16, 0.6);
+  /* Graphite: warm near-black, never pure black and never navy. */
+  --bg: #161513;
+  --panel: #1d1c19;
+  --panel-raised: #252320;
+  --panel-sunken: #121110;
+  --border: #2b2926;
+  --border-strong: #3b3834;
+  --text: #ece8df;
+  --text-secondary: #aaa49a;
+  --text-muted: #847e74;
+  --text-inverse: #161513;
+  --accent: #8ea4f0;
+  --accent-strong: #a6b7f4;
+  --accent-soft: rgba(142, 164, 240, 0.13);
+  --accent-contrast: #161513;
+  --positive: #7cb98f;
+  --positive-soft: rgba(124, 185, 143, 0.13);
+  --negative: #e38b73;
+  --negative-soft: rgba(227, 139, 115, 0.13);
+  --warning: #d8a74f;
+  --warning-soft: rgba(216, 167, 79, 0.13);
+  --focus: #a6b7f4;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.35), 0 10px 28px rgba(0, 0, 0, 0.4);
+  --overlay: rgba(10, 9, 8, 0.64);
 
-  /* Charts (validated against the dark panel #131a30). */
-  --chart-surface: #121a30;
-  --chart-grid: #1f2a45;
-  --chart-axis: #2d3a5c;
-  --chart-text: #7a849e;
-  --series-1: #1e9fc4;
+  /* Charts (validated against the dark panel #1d1c19). */
+  --chart-surface: #1d1c19;
+  --chart-grid: #2b2926;
+  --chart-axis: #3b3834;
+  --chart-text: #847e74;
+  --series-1: #5a83e3;
   --series-2: #d95926;
-  --series-3: #9085e9;
-  --series-4: #d55181;
-  --series-5: #c98500;
-  --series-6: #199e70;
-  --series-muted: #3b4766;
-  --chart-up: #3eaf7c;
-  --chart-down: #e0735e;
-  --chart-benchmark: #7a849e;
+  --series-3: #199e70;
+  --series-4: #c98500;
+  --series-5: #d55181;
+  --series-6: #9085e9;
+  --series-muted: #3f3c37;
+  --chart-up: #7cb98f;
+  --chart-down: #e38b73;
+  --chart-benchmark: #847e74;
 }
 
 @theme inline {
@@ -122,9 +125,9 @@
   --font-sans: var(--font-plex-sans), system-ui, sans-serif;
   --font-mono: var(--font-plex-mono), ui-monospace, monospace;
 
-  --radius-sm: 4px;
+  --radius-sm: 3px;
   --radius-md: 6px;
-  --radius-lg: 8px;
+  --radius-lg: 10px;
 
   --shadow-panel: var(--shadow);
 }
@@ -148,11 +151,17 @@
     font-size: 14px;
     line-height: 1.5;
     min-height: 100dvh;
-    overscroll-behavior-y: none;
+  }
+
+  @media (pointer: fine) {
+    html {
+      overscroll-behavior-y: none;
+    }
   }
 
   ::selection {
-    background: var(--accent-soft);
+    background: var(--accent);
+    color: var(--accent-contrast);
   }
 
   :focus-visible {
@@ -224,6 +233,27 @@
   background: var(--panel);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
+}
+
+/* A group of stat tiles reads as one strip: shared frame, hairline dividers, no card-per-number. */
+@utility tile-strip {
+  display: grid;
+  overflow: hidden;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  gap: 1px;
+  & > * {
+    border: 0;
+    border-radius: 0;
+    background: var(--panel);
+  }
+  /* Two-column strips never leave an empty cell: an odd last tile spans the row. */
+  @media (max-width: 1023px) {
+    & > *:last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+    }
+  }
 }
 
 @utility hairline-b {
@@ -327,7 +357,7 @@
   color: var(--text);
 }
 [cmdk-item][data-selected="true"] {
-  background: var(--accent-soft);
+  background: var(--panel-raised);
 }
 [cmdk-empty] {
   padding: 24px 16px;

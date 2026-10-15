@@ -51,7 +51,7 @@ export function TopBar({ data }: { data: ShellData }) {
         Skip to content
       </a>
       <span className="text-[15px] font-semibold tracking-tight text-fg lg:hidden">Ledger</span>
-      <Button variant="secondary" size="sm" className="hidden min-w-[220px] justify-between text-fg-muted sm:flex" onClick={() => setPaletteOpen(true)} aria-label="Search tickers and commands">
+      <Button variant="secondary" size="sm" className="hidden min-w-[240px] justify-between bg-panel-sunken/70 text-fg-muted hover:bg-panel-sunken sm:flex" onClick={() => setPaletteOpen(true)} aria-label="Search tickers and commands">
         <span className="flex items-center gap-2">
           <MagnifyingGlass size={15} aria-hidden />
           Search tickers, pages, actions
