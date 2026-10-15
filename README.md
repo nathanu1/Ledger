@@ -3,6 +3,29 @@
 Stock research and portfolio intelligence for an individual investor. Local-first, single user, US-listed stocks, ETFs and cash in USD portfolios.
 
 Ledger answers six questions: what do I own and what drove my returns, how concentrated am I, are the companies I follow improving, what assumptions are embedded in a valuation, what changed since I last looked, and does new evidence support or weaken my thesis. Every figure explains its own calculation and links to the position, filing or assumption behind it.
+<table>
+  <tr>
+    <td width="50%">
+      <img src="https://github.com/user-attachments/assets/1ec6be90-bdd0-403b-a16d-540d7ec7b102" alt="Feature 1 Desktop view" width="100%">
+    </td>
+    <td width="50%">
+      <img src="https://github.com/user-attachments/assets/f5581209-6419-4802-89ac-b1c4d9291c7b" alt="Feature 2 Mobile view" width="100%">
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <img src="https://github.com/user-attachments/assets/68db9f06-ebaa-4dd1-b37e-5719fab9595a" alt="Feature 3 Analytics dashboard" width="100%">
+    </td>
+    <td width="50%">
+      <img src="https://github.com/user-attachments/assets/9cfcbb66-a4a5-414e-a096-6937a472811c" alt="Feature 4 Settings panel" width="100%">
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <img src="https://github.com/user-attachments/assets/077623c0-7aad-4ebc-8b31-f527394437cf" alt="Feature 5" width="100%">
+    </td>
+  </tr>
+</table>
 
 ## Quick start
 
