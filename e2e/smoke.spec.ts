@@ -41,11 +41,14 @@ test.describe("main workflows", () => {
     await page.goto("/portfolio");
     const activity = page.locator("section").filter({ has: page.getByRole("heading", { name: "Ledger activity" }) });
     await expect(activity.getByText("Net contributions")).toBeVisible();
-    await activity.getByText(/Monthly activity/).click();
+    await activity.getByText(/Monthly activity/).focus();
+    await activity.getByText(/Monthly activity/).press("Enter");
     await expect(activity.getByRole("table", { name: "Monthly ledger activity" })).toBeVisible();
-    await activity.getByText(/Dividend income by holding/).click();
+    await activity.getByText(/Dividend income by holding/).focus();
+    await activity.getByText(/Dividend income by holding/).press("Enter");
     await expect(activity.locator("details").filter({ hasText: "Dividend income by holding" }).getByRole("listitem").first()).toBeVisible();
-    await page.getByText(/View open lots/).click();
+    await page.getByText(/View open lots/).focus();
+    await page.getByText(/View open lots/).press("Enter");
     await expect(page.getByRole("table", { name: "Open FIFO lots" })).toBeVisible();
     const href = await activity.getByRole("link", { name: "Export activity" }).getAttribute("href");
     const response = await request.get(href!);
