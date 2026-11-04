@@ -5,6 +5,7 @@ import { DrawdownChart } from "@/components/charts/drawdown-chart";
 import { GrowthChart, type GrowthPoint } from "@/components/charts/growth-chart";
 import { Contributors } from "@/components/overview/contributors";
 import { PeriodSelector } from "@/components/overview/period-selector";
+import { PortfolioActivity } from "@/components/portfolio/activity";
 import { ExposureList } from "@/components/portfolio/exposure";
 import { HoldingsTable } from "@/components/portfolio/holdings-table";
 import { PerformanceTiles } from "@/components/portfolio/performance-tiles";
@@ -100,6 +101,8 @@ export default async function PortfolioPage({ searchParams }: { searchParams: Se
         {snapshot.missingPrices.length ? <EmptyState tone="warning" title={`No price data for ${snapshot.missingPrices.join(", ")}`} description="These positions are listed with their cost basis but excluded from totals and weights. Refresh market data in Settings (connected mode) or check the symbol." /> : null}
 
         <PerformanceTiles snapshot={snapshot} />
+
+        <PortfolioActivity snapshot={snapshot} />
 
         <Panel>
           <PanelHeader title="Holdings" description={`${snapshot.holdings.length} open positions · prices as of their last available close · weights include cash`} />

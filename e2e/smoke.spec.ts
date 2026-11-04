@@ -8,7 +8,7 @@ test.describe("main workflows", () => {
   test("overview shows portfolio value, period return and contributors", async ({ page }) => {
     await page.goto("/");
     await expect(page.getByRole("heading", { name: "What changed?" })).toBeVisible();
-    await expect(page.getByText("Portfolio value")).toBeVisible();
+    await expect(page.getByText("Portfolio value", { exact: true })).toBeVisible();
     await expect(page.getByText("Biggest contributors", { exact: false })).toBeVisible();
     await expect(page.getByLabel("Demo data mode: fictional dataset")).toBeVisible();
     await page.getByRole("link", { name: "3 months" }).click();
@@ -35,6 +35,28 @@ test.describe("main workflows", () => {
     await expect(table.getByRole("link", { name: "HALC" })).toBeVisible();
     await table.getByRole("button", { name: /Weight/ }).click();
     await expect(table.getByRole("columnheader", { name: /Weight/ })).toHaveAttribute("aria-sort", /ascending|descending/);
+  });
+
+  test("portfolio activity and FIFO lots are available", async ({ page, request }) => {
+    await page.goto("/portfolio");
+    const activity = page.locator("section").filter({ has: page.getByRole("heading", { name: "Ledger activity" }) });
+    await expect(activity.getByText("Net contributions")).toBeVisible();
+    await activity.getByText(/Monthly activity/).focus();
+    await activity.getByText(/Monthly activity/).press("Enter");
+    await expect(activity.getByRole("table", { name: "Monthly ledger activity" })).toBeVisible();
+    await activity.getByText(/Dividend income by holding/).focus();
+    await activity.getByText(/Dividend income by holding/).press("Enter");
+    await expect(activity.locator("details").filter({ hasText: "Dividend income by holding" }).getByRole("listitem").first()).toBeVisible();
+    await page.getByText(/View open lots/).focus();
+    await page.getByText(/View open lots/).press("Enter");
+    await expect(page.getByRole("table", { name: "Open FIFO lots" })).toBeVisible();
+    const href = await activity.getByRole("link", { name: "Export activity" }).getAttribute("href");
+    const response = await request.get(href!);
+    expect(response.ok()).toBeTruthy();
+    const report = await response.json();
+    expect(report.schemaVersion).toBe(1);
+    expect(report.totals.dividends).toBeDefined();
+    expect(response.headers()["cache-control"]).toBe("no-store");
   });
 
   test("add, edit and delete a transaction", async ({ page }, testInfo) => {

@@ -7,6 +7,7 @@ import { buildPortfolioSnapshot, listPortfolios, resolvePortfolioId, type Portfo
 import { getSecurities } from "./securities";
 import { getAsOfDate } from "./settings";
 import { collectThesisAlerts, type ThesisAlert } from "./thesis";
+import { buildResearchReview } from "./review";
 import { watchedSymbols } from "./watchlist";
 
 export interface OverviewAlert {
@@ -63,6 +64,7 @@ export function buildOverview(options: { portfolioId?: string | null; period?: P
     href: `/company/${a.symbol}?tab=thesis`,
   }));
   if (snapshot) {
+    alerts.push(...buildResearchReview(snapshot).findings);
     if (snapshot.concentration.largest && snapshot.concentration.largest.weight > 0.25) {
       alerts.push({
         kind: "concentration",
