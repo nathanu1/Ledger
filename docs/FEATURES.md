@@ -7,12 +7,14 @@
 - Largest position weights, biggest positive and negative contributors with an exact per-position P/L derivation.
 - Upcoming earnings with confirmed versus estimated status and the basis of every date.
 - Watchlist moves and new filings; thesis rule alerts, overdue review dates, concentration and data-coverage alerts.
+- Evidence-based research monitoring: new financial filings since thesis revision, material stock holdings without current research, aged research, stale valuation closes and clustered earnings exposure. Uses the existing Needs review list; [policy, export and operational details](RESEARCH_REVIEW.md).
 - Every figure opens an explanation drawer with definition, period, units, source, derivation and limitations.
 
 **Portfolio tracker**
 - Multiple portfolios with their own benchmark; active portfolio selectable from the top bar.
 - Transaction ledger as the source of truth: buys, sells, deposits, withdrawals, cash dividends, dividend reinvestment (linked dividend + buy), interest, standalone fees, splits. Add, edit and delete with validation; rejected transactions (for example a sell exceeding holdings) are shown, not silently applied. Running cash balance per row.
 - CSV import with preview, column mapping suggestions, date-format control, per-row validation, duplicate detection against the ledger and within the file, and CSV export in the same format.
+- Ledger activity for the selected period: deposits, withdrawals, net contributions, income, FIFO realized gains, trading and standalone fees, monthly breakdown and dividends by holding; downloadable JSON report. Open FIFO lots show remaining shares and cost basis.
 - Holdings table (sortable): shares, average cost, cost basis, price with staleness marker, market value, weight, day change, unrealized and realized P/L, dividends, total gain. Closed positions kept with their realized P/L.
 - Performance: time-weighted and money-weighted returns, investment gain, growth-of-100 against the benchmark over matching dates with the return type (total or price) stated, drawdown chart on the time-weighted index, sector and position concentration, exact profit attribution per position. FIFO cost basis stated; realized gains labelled as accounting estimates.
 
